@@ -24,7 +24,7 @@
 			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 		</config-file>
 		<source-file src='src/android/JitsiPlugin.java' target-dir='src/com/cordova/plugin/jitsi/' />
-		<framework src='src/android/jitsiplugin.gradle' custom='true' type='gradleReference' />
+		
 	</platform>
 
 	<!-- ios -->
