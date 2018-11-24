@@ -48,8 +48,8 @@ public class JitsiPlugin extends CordovaPlugin{
                 setJitsiListener(view, callbackContext);
                 view.setWelcomePageEnabled(false);
                 Bundle config = new Bundle();
-                config.putBoolean("startWithAudioMuted", true);
-                config.putBoolean("startWithVideoMuted", true);
+                config.putBoolean("startWithAudioMuted", false);
+                config.putBoolean("startWithVideoMuted", false);
                 Bundle urlObject = new Bundle();
                 urlObject.putBundle("config", config);
                 urlObject.putString("url", url);
@@ -72,7 +72,7 @@ public class JitsiPlugin extends CordovaPlugin{
             @Override
             public void onConferenceFailed(Map<String, Object> data) {
                 on("CONFERENCE_FAILED", data);
-                pluginResult = new PluginResult(PluginResult.Status.OK, "CONFERENCE_FAILED");
+                pluginResult = new PluginResult(PluginResult.Status.OK, new JSONObject(data));
                 pluginResult.setKeepCallback(true);
                 callbackContext.sendPluginResult(pluginResult);
             }
@@ -143,4 +143,3 @@ public class JitsiPlugin extends CordovaPlugin{
 
  
 }
-
