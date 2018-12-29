@@ -1,13 +1,11 @@
-apply plugin: 'com.android.application'
 repositories{
+	jcenter()
+	maven {
+		url "https://github.com/gaganinvic/jitsi-maven-repository/raw/master/releases"
+	}
 	maven {
 		url "https://maven.google.com"
 	}
-	jcenter()
-	maven{
-            url 'https://github.com/jitsi/jitsi-maven-repository/raw/master/releases'
-        }
-	
 }
 android {
 	compileSdkVersion 26
@@ -36,11 +34,12 @@ android {
     	}
 }
 dependencies {
-          
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.4.0'
-    compile 'com.android.support.constraint:constraint-layout:1.1.0'
-    compile 'org.jitsi.react:jitsi-meet-sdk:1.9.0'
-    compile 'com.android.support:recyclerview-v7:25.4.0'
-    compile 'com.android.support:design:25.4.0'
+
+	compile('org.jitsi.react:jitsi-meet-sdk:1.9.0@aar') {
+		transitive = true;
+	}
+
+	compile "com.android.support:appcompat-v7:27.0.2"
+	compile "com.android.support:recyclerview-v7:27.0.2"
+	compile "com.android.support:design:27.0.2"
 }
